@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styvora | Women's Fashion & Accessories</title>
+    <style>
+        /* Minimalist Theme Basics */
+        :root {
+            --bg-color: #FAFAFA;
+            --text-main: #222222;
+            --text-muted: #666666;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Header / Logo Area */
+        header {
+            text-align: center;
+            padding: 50px 20px 30px;
+            border-bottom: 1px solid #EBEBEB;
+            background: #FFFFFF;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        /* Responsive Grid for Products */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        /* Product Card Styling */
+        .card {
+            background: #FFFFFF;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Image Container - Strictly enforcing the 1024x1536 aspect ratio */
+        .img-wrapper {
+            width: 100%;
+            aspect-ratio: 1024 / 1536;
+            background-color: #F5F5F5;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Product Details */
+        .details {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .product-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 8px 0 20px;
+        }
+
+        /* Minimalist Button */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--text-main);
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: #FFFFFF;
+            border-top: 1px solid #EBEBEB;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Styvora</h1>
+        <p>Elegance in Every Thread & Sparkle</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Sarees Collection -->
+        <h2 class="section-title">Trending Sarees</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <div class="img-wrapper">
+                    <!-- আপনার জেনারেট করা ব্যানারটি এখানে দিন -->
+                    <img src="your-saree-image.jpg" alt="Traditional Women's Saree">
+                </div>
+                <div class="details">
+                    <h3 class="product-name">Premium Silk Collection</h3>
+                    <p class="product-desc">Perfect drape for elegant occasions.</p>
+                    <a href="#" class="btn">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- আরও শাড়ির কার্ড অ্যাড করতে উপরের .card অংশটুকু কপি করুন -->
+            
+        </div>
+
+        <br><br><br>
+
+        <!-- Jewelry Collection -->
+        <h2 class="section-title">Exclusive Accessories</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <div class="img-wrapper">
+                    <!-- আপনার জেনারেট করা ব্যানারটি এখানে দিন -->
+                    <img src="your-jewelry-image.jpg" alt="Premium Gold Plated Jewelry">
+                </div>
+                <div class="details">
+                    <h3 class="product-name">Traditional Kundan Set</h3>
+                    <p class="product-desc">Premium Quality Gold-Plated (Artificial / Not Real Gold)</p>
+                    <a href="#" class="btn">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- আরও জুয়েলারি কার্ড অ্যাড করতে উপরের .card অংশটুকু কপি করুন -->
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 Styvora. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

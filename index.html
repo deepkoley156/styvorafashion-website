@@ -25,27 +25,33 @@
             line-height: 1.6;
         }
 
-        /* Header / Logo Area */
+        /* Top Navigation / Logo Area */
         header {
             text-align: center;
-            padding: 50px 20px 30px;
-            border-bottom: 1px solid #EBEBEB;
+            padding: 20px;
             background: #FFFFFF;
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin: 0;
-            font-weight: 600;
+        .nav-logo {
+            height: 70px; /* Minimalist logo size */
+            width: auto;
+            border-radius: 50%; /* Keeps the circular look perfect */
         }
 
-        header p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 10px;
-            letter-spacing: 1px;
+        /* Hero Banner Section */
+        .hero-section {
+            width: 100%;
+            background: #FFFFFF;
+            border-bottom: 1px solid #EBEBEB;
+            padding-bottom: 20px;
+        }
+
+        .hero-banner {
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
 
         /* Layout Container */
@@ -147,11 +153,15 @@
 </head>
 <body>
 
-    <!-- Header Section -->
+    <!-- Header Section with Circular Logo -->
     <header>
-        <h1>Styvora</h1>
-        <p>Elegance in Every Thread & Sparkle</p>
+        <img src="95098.png" alt="Styvora Logo" class="nav-logo">
     </header>
+
+    <!-- Hero Section with Landscape Banner -->
+    <div class="hero-section">
+        <img src="95106.jpg" alt="Styvora Fashion Collection" class="hero-banner">
+    </div>
 
     <div class="container">
         
@@ -161,7 +171,6 @@
             
             <div class="card">
                 <div class="img-wrapper">
-                    <!-- আপনার 1024x1536 রেজোলিউশনের শাড়ির ছবি এখানে দিন -->
                     <img src="your-saree-image.jpg" alt="Traditional Women's Saree">
                 </div>
                 <div class="details">
@@ -181,7 +190,6 @@
             
             <div class="card">
                 <div class="img-wrapper">
-                    <!-- আপনার 1024x1536 রেজোলিউশনের জুয়েলারির ছবি এখানে দিন -->
                     <img src="your-jewelry-image.jpg" alt="Premium Gold Plated Jewelry">
                 </div>
                 <div class="details">

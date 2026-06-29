@@ -59,7 +59,7 @@
         .hero-section {
             display: flex;
             align-items: center;
-            background-color: #FFF9F5;
+            background-color: transparent; /* ব্যাকগ্রাউন্ড ট্রান্সপারেন্ট করা হয়েছে */
             padding: 40px 20px;
             position: relative;
             overflow: hidden;
@@ -73,7 +73,7 @@
         .hero-content h1 {
             font-size: 2.5rem;
             font-weight: 400;
-            margin: 0 0 20px 0;
+            margin: -20px 0 40px 0; /* লেখা উপরে এবং বাটন নিচে নামানো হয়েছে */
             line-height: 1.1;
         }
 
@@ -227,7 +227,7 @@
             <!-- Button changed to reflect recommendation -->
             <a href="#" class="btn-dark">Explore Collection <i class="fa-solid fa-chevron-right"></i></a>
         </div>
-        <!-- Hero Background Image -->
+        <!-- Hero Background Image (right: -10px করা হয়েছে) -->
         <img src="95106.jpg" style="position: absolute; right: -10px; top: 0; height: 100%; opacity: 0.8; object-fit: cover; width: 60%; z-index: 1;" alt="Fashion Models">
     </section>
 

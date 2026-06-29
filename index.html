@@ -8,95 +8,146 @@
     <!-- Pinterest Verification Tag -->
     <meta name="p:domain_verify" content="0c19590d283e62d71173d3953054bcbd"/>
 
+    <!-- Google Fonts & FontAwesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* Minimalist Theme Basics */
         :root {
-            --bg-color: #FAFAFA;
+            --primary: #000000;
+            --bg-color: #FFFFFF;
             --text-main: #222222;
             --text-muted: #666666;
+            --accent-yellow: #FAFFB5;
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Jost', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            padding-bottom: 70px; /* Space for bottom nav */
+            overflow-x: hidden;
         }
 
-        /* Top Navigation / Logo Area */
-        header {
-            text-align: center;
-            padding: 20px;
-            background: #FFFFFF;
+        /* Top Navigation */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: var(--bg-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #F0F0F0;
         }
 
-        .nav-logo {
-            height: 70px; /* Minimalist logo size */
-            width: auto;
-            border-radius: 50%; /* Keeps the circular look perfect */
+        .nav-icons {
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--primary);
         }
 
-        /* Hero Banner Section */
+        .logo-img {
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        /* Hero Section */
         .hero-section {
-            width: 100%;
-            background: #FFFFFF;
+            display: flex;
+            align-items: center;
+            background-color: #FFF9F5;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin: 0 0 20px 0;
+            line-height: 1.1;
+        }
+
+        .btn-dark {
+            background: var(--primary);
+            color: #FFFFFF;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Announcement Bar */
+        .announcement {
+            background: var(--accent-yellow);
+            text-align: center;
+            padding: 12px 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             border-bottom: 1px solid #EBEBEB;
-            padding-bottom: 20px;
         }
 
-        .hero-banner {
-            width: 100%;
-            max-width: 1200px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* Layout Container */
+        /* Container & Typography */
         .container {
+            padding: 40px 20px;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 50px 20px;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 400;
-            letter-spacing: 2px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             text-transform: uppercase;
-            margin-bottom: 40px;
         }
 
-        /* Responsive Grid for Products */
+        .nav-arrows i {
+            margin-left: 15px;
+            border: 1px solid #DDD;
+            border-radius: 50%;
+            padding: 8px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Products Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        /* Product Card Styling */
         .card {
             background: #FFFFFF;
-            padding: 15px;
-            border-radius: 4px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease;
+            margin-bottom: 20px;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Image Container - Strictly enforcing the 1024x1536 aspect ratio */
+        /* Strictly Enforced 1024x1536 Aspect Ratio for Products */
         .img-wrapper {
             width: 100%;
             aspect-ratio: 1024 / 1536;
             background-color: #F5F5F5;
             overflow: hidden;
-            border-radius: 2px;
+            position: relative;
         }
 
         .img-wrapper img {
@@ -105,108 +156,145 @@
             object-fit: cover;
         }
 
-        /* Product Details */
         .details {
-            text-align: center;
-            margin-top: 20px;
+            padding-top: 15px;
         }
 
         .product-name {
-            font-size: 1.1rem;
-            margin: 0;
+            font-size: 1rem;
             font-weight: 500;
+            margin: 0 0 5px;
         }
 
         .product-desc {
             font-size: 0.85rem;
             color: var(--text-muted);
-            margin: 8px 0 20px;
+            margin: 0 0 15px 0;
+            line-height: 1.4;
         }
 
-        /* Minimalist Button */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--text-main);
-            color: #FFFFFF;
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            border-radius: 2px;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background-color: var(--text-muted);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
+        /* Bottom Mobile Navigation App-Style */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
             background: #FFFFFF;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
             border-top: 1px solid #EBEBEB;
+            z-index: 100;
         }
+
+        .bottom-nav-item {
+            text-align: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .bottom-nav-item.active {
+            color: var(--primary);
+        }
+
+        .bottom-nav-item i {
+            font-size: 1.3rem;
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- Header Section with Circular Logo -->
-    <header>
-        <img src="95098.png" alt="Styvora Logo" class="nav-logo">
-    </header>
+    <!-- Top Navigation (Clean & Minimal) -->
+    <nav class="top-nav">
+        <div class="nav-icons"><i class="fa-solid fa-bars"></i></div>
+        <!-- Logo -->
+        <img src="95098.png" alt="Styvora Logo" class="logo-img">
+        <div class="nav-icons"><i class="fa-solid fa-magnifying-glass"></i></div>
+    </nav>
 
-    <!-- Hero Section with Landscape Banner -->
-    <div class="hero-section">
-        <img src="95106.jpg" alt="Styvora Fashion Collection" class="hero-banner">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Glamorous<br>Glam</h1>
+            <!-- Button changed to reflect recommendation -->
+            <a href="#" class="btn-dark">Explore Collection <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+        <!-- Hero Background Image -->
+        <img src="95106.jpg" style="position: absolute; right: -50px; top: 0; height: 100%; opacity: 0.8; object-fit: cover; width: 60%; z-index: 1;" alt="Fashion Models">
+    </section>
+
+    <!-- Yellow Announcement Bar -->
+    <div class="announcement">
+        <i class="fa-solid fa-star"></i> Handpicked Curated Styles Just For You
     </div>
 
+    <!-- Main Content -->
     <div class="container">
         
-        <!-- Sarees Collection -->
-        <h2 class="section-title">Trending Sarees</h2>
+        <div class="section-title">
+            TRENDING COLLECTIONS
+            <div class="nav-arrows">
+                <i class="fa-solid fa-chevron-left"></i>
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+        </div>
+
         <div class="grid">
             
+            <!-- Saree Product -->
             <div class="card">
                 <div class="img-wrapper">
-                    <img src="your-saree-image.jpg" alt="Traditional Women's Saree">
+                    <!-- এখানে আপনার শাড়ির আসল ছবি গিটহাবে আপলোড করে তার নামটি বসান -->
+                    <img src="your-saree.jpg" alt="Trending Saree">
                 </div>
                 <div class="details">
-                    <h3 class="product-name">Premium Silk Collection</h3>
+                    <h3 class="product-name">Premium Silk Saree</h3>
                     <p class="product-desc">Perfect drape for elegant occasions.</p>
-                    <a href="#" class="btn">Shop Now</a>
+                    <!-- View Product Button -->
+                    <a href="#" class="btn-dark" style="padding: 8px 16px; font-size: 0.8rem;">View Product</a>
                 </div>
             </div>
 
-        </div>
-
-        <br><br><br>
-
-        <!-- Jewelry Collection -->
-        <h2 class="section-title">Exclusive Accessories</h2>
-        <div class="grid">
-            
+            <!-- Jewelry Product -->
             <div class="card">
                 <div class="img-wrapper">
-                    <img src="your-jewelry-image.jpg" alt="Premium Gold Plated Jewelry">
+                    <!-- এখানে আপনার জুয়েলারির আসল ছবি গিটহাবে আপলোড করে তার নামটি বসান -->
+                    <img src="your-jewelry.jpg" alt="Exclusive Accessories">
                 </div>
                 <div class="details">
                     <h3 class="product-name">Traditional Kundan Set</h3>
                     <p class="product-desc">Premium Quality Gold-Plated (Artificial / Not Real Gold)</p>
-                    <a href="#" class="btn">Shop Now</a>
+                    <!-- View Product Button -->
+                    <a href="#" class="btn-dark" style="padding: 8px 16px; font-size: 0.8rem;">View Product</a>
                 </div>
             </div>
 
         </div>
-
     </div>
 
-    <!-- Footer -->
-    <footer>
-        &copy; 2026 Styvora. All Rights Reserved.
-    </footer>
+    <!-- Bottom App-Style Navigation (Without Cart/Account) -->
+    <nav class="bottom-nav">
+        <a href="#" class="bottom-nav-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="bottom-nav-item">
+            <i class="fa-solid fa-border-all"></i>
+            <span>Categories</span>
+        </a>
+        <a href="#" class="bottom-nav-item">
+            <i class="fa-brands fa-pinterest"></i>
+            <span>Pinterest</span>
+        </a>
+    </nav>
 
 </body>
 </html>

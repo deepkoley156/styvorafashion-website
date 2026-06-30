@@ -69,7 +69,7 @@
             color: #000000;
         }
 
-        /* Hero Section - Updated with Banner Image */
+        /* Hero Section */
         .hero-section {
             background-image: url('banner.jpg');
             background-size: cover;
@@ -80,8 +80,6 @@
             border-bottom: 1px solid #f0f0f0;
             position: relative;
         }
-        
-        /* White overlay to make text readable */
         .hero-section::before {
             content: '';
             position: absolute;
@@ -92,14 +90,12 @@
             background: rgba(255, 255, 255, 0.75); 
             z-index: 1;
         }
-
         .hero-section h1, 
         .hero-section p, 
         .hero-section .cta-btn {
             position: relative;
             z-index: 2;
         }
-
         .hero-section h1 {
             font-size: 46px;
             font-weight: 300;
@@ -177,13 +173,68 @@
             color: #777777;
         }
 
+        /* Newsletter Section */
+        .newsletter-section {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 80px 20px;
+            border-top: 1px solid #eeeeee;
+        }
+        .newsletter-section h2 {
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .newsletter-section p {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 30px;
+        }
+        .subscribe-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+        .subscribe-form input[type="email"] {
+            flex: 1;
+            padding: 12px 20px;
+            border: 1px solid #cccccc;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .subscribe-form input[type="email"]:focus {
+            border-color: #111111;
+        }
+        .subscribe-form button {
+            padding: 12px 30px;
+            background-color: #111111;
+            color: #ffffff;
+            border: none;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .subscribe-form button:hover {
+            background-color: #333333;
+        }
+        #form-message {
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
         /* Footer Section */
         footer {
             background-color: #111111;
             color: #ffffff;
             text-align: center;
             padding: 50px 20px;
-            margin-top: 50px;
         }
         footer p {
             font-size: 13px;
@@ -206,6 +257,12 @@
             }
             .collection-grid {
                 grid-template-columns: 1fr;
+            }
+            .subscribe-form {
+                flex-direction: column;
+            }
+            .subscribe-form button {
+                width: 100%;
             }
         }
     </style>
@@ -251,9 +308,66 @@
         </div>
     </section>
 
+    <!-- Newsletter Section with Web3Forms -->
+    <section class="newsletter-section">
+        <h2>Join the Styvora Club</h2>
+        <p>Subscribe to receive updates on new saree collections, jewelry drops, and exclusive offers.</p>
+        
+        <form class="subscribe-form" id="subscribe-form">
+            <!-- Your Web3Forms Access Key -->
+            <input type="hidden" name="access_key" value="bd11a4c2-594f-4603-b2bf-2b45a29161fc">
+            <input type="hidden" name="subject" value="New Subscriber on Styvora Website!">
+            <input type="hidden" name="from_name" value="Styvora Alerts">
+            
+            <input type="email" name="email" id="email-input" placeholder="Enter your email address" required>
+            <button type="submit" id="submit-btn">Subscribe</button>
+        </form>
+        <p id="form-message"></p>
+    </section>
+
     <footer>
         <p>&copy; 2026 STYVORA. All Rights Reserved.</p>
     </footer>
 
+    <!-- Web3Forms API Script -->
+    <script>
+        const form = document.getElementById('subscribe-form');
+        const messageEl = document.getElementById('form-message');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            submitBtn.disabled = true;
+            messageEl.innerText = "Subscribing...";
+            messageEl.style.color = "#666666";
+
+            const formData = new FormData(form);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    messageEl.innerText = "Thank you for subscribing to Styvora!";
+                    messageEl.style.color = "green";
+                    form.reset();
+                } else {
+                    messageEl.innerText = json.message;
+                    messageEl.style.color = "red";
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                messageEl.innerText = "Something went wrong. Please try again.";
+                messageEl.style.color = "red";
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
 </body>
 </html>

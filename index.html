@@ -1,484 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Styvora | Indian Women's Fashion</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --rose: #C9677A; --gold: #B8904A; --dark: #111;
-      --light: #faf9f7; --muted: #888; --border: #e8e2dc;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--light); color: var(--dark); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styvora | Premium Women's Fashion & Accessories</title>
+    <style>
+        /* CSS Reset & Core Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #fbfbfb;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
 
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: rgba(250,249,247,0.97); backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-top {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 48px; height: 62px;
-    }
-    .nav-logo img { height: 38px; width: 38px; border-radius: 50%; object-fit: cover; }
-    .nav-right { display: flex; align-items: center; gap: 20px; }
-    .nav-shop { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 9px 22px; background: var(--dark); color: white; text-decoration: none; border-radius: 2px; transition: background 0.2s; }
-    .nav-shop:hover { background: var(--rose); }
+        /* Header Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .brand-logo {
+            height: 45px;
+            width: 45px;
+            object-fit: cover;
+            border-radius: 50%; /* Image er baaswher white corners cut kore round shape dore rakhbe */
+        }
+        .brand-name {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #111111;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+        nav ul li a {
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #555555;
+        }
+        nav ul li a:hover {
+            color: #000000;
+        }
 
-    /* MEGA MENU BAR */
-    .nav-bar {
-      display: flex; align-items: center; gap: 0;
-      border-top: 1px solid var(--border);
-      overflow-x: auto; scrollbar-width: none;
-      padding: 0 32px;
-    }
-    .nav-bar::-webkit-scrollbar { display: none; }
-    .nav-item { position: relative; }
-    .nav-item > a {
-      display: flex; align-items: center; gap: 5px;
-      padding: 12px 16px; font-size: 0.74rem; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--dark); text-decoration: none;
-      white-space: nowrap; transition: color 0.2s; border-bottom: 2px solid transparent;
-    }
-    .nav-item > a:hover, .nav-item:hover > a { color: var(--rose); border-bottom-color: var(--rose); }
-    .nav-item > a .arr { font-size: 0.5rem; opacity: 0.5; }
+        /* Hero Section */
+        .hero-section {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 140px 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .hero-section h1 {
+            font-size: 46px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .hero-section p {
+            font-size: 16px;
+            color: #666666;
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #111111;
+            color: #ffffff;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        .cta-btn:hover {
+            background-color: #333333;
+            letter-spacing: 2.5px;
+        }
 
-    /* DROPDOWN */
-    .dropdown {
-      display: none; position: absolute; top: 100%; left: 0;
-      background: white; border: 1px solid var(--border);
-      border-top: 2px solid var(--rose);
-      min-width: 180px; z-index: 300;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
-    .nav-item:hover .dropdown { display: block; }
-    .dropdown a {
-      display: block; padding: 10px 18px;
-      font-size: 0.78rem; color: #444; text-decoration: none;
-      border-bottom: 1px solid #f5f0eb; transition: all 0.15s;
-    }
-    .dropdown a:last-child { border-bottom: none; }
-    .dropdown a:hover { background: #fdf8f5; color: var(--rose); padding-left: 22px; }
+        /* Featured Collections */
+        .collections-section {
+            padding: 100px 8%;
+            text-align: center;
+        }
+        .collections-section h2 {
+            font-size: 28px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            position: relative;
+        }
+        .collections-section h2::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: #111;
+            margin: 15px auto 0 auto;
+        }
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        .collection-card {
+            background: #ffffff;
+            padding: 50px 30px;
+            border: 1px solid #eeeeee;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.01);
+        }
+        .collection-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            border-color: #dddddd;
+        }
+        .collection-card h3 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .collection-card p {
+            font-size: 14px;
+            color: #777777;
+        }
 
-    /* HERO */
-    .hero { margin-top: 110px; }
-    .hero-text { text-align: center; padding: 52px 24px 40px; background: var(--light); }
-    .hero-label { font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose); margin-bottom: 12px; }
-    .hero-text h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 300; line-height: 1.1; color: var(--dark); margin-bottom: 14px; }
-    .hero-text h1 em { font-style: italic; color: var(--rose); }
-    .hero-text p { font-size: 0.85rem; color: var(--muted); margin-bottom: 28px; }
-    .hero-btn { display: inline-block; padding: 13px 34px; background: var(--dark); color: white; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s; }
-    .hero-btn:hover { background: var(--rose); }
-    .hero-banner img { width: 100%; display: block; max-height: 480px; object-fit: cover; object-position: center; }
+        /* Footer Section */
+        footer {
+            background-color: #111111;
+            color: #ffffff;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 50px;
+        }
+        footer p {
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            color: #999999;
+        }
 
-    /* STRIP */
-    .strip { background: var(--dark); color: white; display: flex; align-items: center; justify-content: center; gap: 40px; padding: 18px 48px; flex-wrap: wrap; }
-    .strip-item { text-align: center; }
-    .strip-item strong { display: block; font-size: 0.78rem; color: white; }
-    .strip-item span { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); display: block; margin-top: 3px; }
-    .strip-sep { width: 1px; height: 28px; background: rgba(255,255,255,0.12); }
-
-    /* SECTIONS */
-    section { padding: 68px 48px; }
-    .sec-label { font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 8px; }
-    .sec-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 300; color: var(--dark); margin-bottom: 36px; }
-    .sec-title em { font-style: italic; color: var(--rose); }
-
-    /* CATEGORY SHOWCASE */
-    .cat-showcase { background: white; }
-    .cat-main-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
-    .cat-main-item {
-      background: var(--light); padding: 32px 24px;
-      text-decoration: none; color: var(--dark); display: block;
-      transition: background 0.2s;
-    }
-    .cat-main-item:hover { background: var(--dark); color: white; }
-    .cat-main-item:hover .cat-sub-list a { color: rgba(255,255,255,0.55); }
-    .cat-main-item:hover .cat-sub-list a:hover { color: var(--rose); }
-    .cat-main-item:hover .see-all { color: var(--rose); }
-    .cat-main-icon { font-size: 1.8rem; margin-bottom: 10px; }
-    .cat-main-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
-    .cat-main-item:hover h3 { border-bottom-color: rgba(255,255,255,0.15); }
-    .cat-sub-list { list-style: none; }
-    .cat-sub-list li { margin-bottom: 0; }
-    .cat-sub-list a { font-size: 0.78rem; color: #666; text-decoration: none; display: block; padding: 4px 0; transition: color 0.15s; }
-    .cat-sub-list a:hover { color: var(--rose); }
-    .see-all { display: inline-block; margin-top: 12px; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose); }
-
-    /* PRODUCTS */
-    .products-bg { background: var(--light); }
-    .product-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .product-card { border: 1px solid var(--border); border-radius: 2px; overflow: hidden; background: white; transition: box-shadow 0.2s; }
-    .product-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
-    .product-thumb { aspect-ratio: 3/4; background: #f3ede8; display: flex; align-items: center; justify-content: center; font-size: 3.8rem; position: relative; }
-    .badge { position: absolute; top: 12px; left: 12px; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px; border-radius: 1px; color: white; }
-    .badge-new { background: var(--rose); }
-    .badge-sale { background: var(--gold); }
-    .product-body { padding: 16px 18px 20px; }
-    .product-cat { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); margin-bottom: 5px; }
-    .product-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; margin-bottom: 7px; }
-    .product-desc { font-size: 0.77rem; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
-    .product-foot { display: flex; align-items: center; justify-content: space-between; }
-    .price { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--dark); }
-    .price .old { font-family: 'DM Sans',sans-serif; font-size: 0.78rem; color: #bbb; text-decoration: line-through; margin-right: 4px; }
-    .btn-buy { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 16px; background: var(--dark); color: white; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
-    .btn-buy:hover { background: var(--rose); }
-
-    .divider { height: 1px; background: var(--border); margin: 0 48px; }
-
-    /* TESTIMONIALS */
-    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .testi-card { border: 1px solid var(--border); padding: 26px 22px; background: white; }
-    .stars { color: var(--gold); font-size: 0.76rem; letter-spacing: 2px; margin-bottom: 12px; }
-    .testi-card blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; line-height: 1.6; color: #333; margin-bottom: 16px; }
-    .testi-card cite { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-style: normal; }
-
-    /* NEWSLETTER */
-    .newsletter { background: #f3ede8; text-align: center; }
-    .newsletter .sec-title { margin-bottom: 6px; }
-    .nl-sub { font-size: 0.83rem; color: var(--muted); margin-bottom: 26px; }
-    .nl-form { display: flex; max-width: 420px; margin: 0 auto; border: 1px solid var(--border); border-radius: 2px; overflow: hidden; }
-    .nl-form input { flex: 1; padding: 12px 16px; border: none; outline: none; background: white; font-family: 'DM Sans',sans-serif; font-size: 0.83rem; }
-    .nl-form button { padding: 12px 22px; background: var(--dark); color: white; border: none; cursor: pointer; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; font-family: 'DM Sans',sans-serif; transition: background 0.2s; }
-    .nl-form button:hover { background: var(--rose); }
-
-    /* FOOTER */
-    footer { background: var(--dark); color: rgba(255,255,255,0.45); padding: 40px 48px; }
-    .footer-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .footer-logo img { height: 38px; width: 38px; border-radius: 50%; }
-    .footer-nav { display: flex; gap: 24px; flex-wrap: wrap; }
-    .footer-nav a { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-    .footer-nav a:hover { color: white; }
-    .footer-bottom { display: flex; justify-content: space-between; font-size: 0.7rem; }
-
-    @media(max-width:900px){
-      nav .nav-top { padding: 0 20px; }
-      .nav-bar { padding: 0 12px; }
-      .nav-item > a { padding: 10px 12px; font-size: 0.68rem; }
-      section { padding: 48px 20px; }
-      .hero { margin-top: 105px; }
-      .hero-text { padding: 36px 20px 28px; }
-      .cat-main-grid { grid-template-columns: repeat(2,1fr); }
-      .product-grid { grid-template-columns: 1fr 1fr; }
-      .testi-grid { grid-template-columns: 1fr; }
-      .strip { gap: 16px; padding: 16px 20px; }
-      .strip-sep { display: none; }
-      .divider { margin: 0 20px; }
-      footer { padding: 32px 20px; }
-      .footer-top { flex-direction: column; gap: 20px; text-align: center; }
-      .footer-nav { justify-content: center; }
-      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-    }
-    @media(max-width:540px){
-      .product-grid { grid-template-columns: 1fr; }
-      .cat-main-grid { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 25px;
+                padding: 20px;
+            }
+            .hero-section {
+                padding: 100px 20px;
+            }
+            .hero-section h1 {
+                font-size: 34px;
+            }
+            .collection-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-top">
-    <a class="nav-logo" href="#"><img src="logo.png" alt="Styvora"/></a>
-    <div class="nav-right">
-      <a href="#products" class="nav-shop">Shop Now</a>
-    </div>
-  </div>
+    <header>
+        <a href="#" class="logo-container">
+            <img src="logo.jpg" alt="Styvora Logo" class="brand-logo">
+            <span class="brand-name">Styvora</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Sarees</a></li>
+                <li><a href="#">Jewelry</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- MEGA MENU BAR -->
-  <div class="nav-bar">
+    <section class="hero-section">
+        <h1>Elegance in Every Detail</h1>
+        <p>Discover our exclusive collection of premium women's fashion, exquisite traditional sarees, and beautifully crafted gold-plated artificial jewelry designed for the modern woman.</p>
+        <a href="#" class="cta-btn">Explore Collection</a>
+    </section>
 
-    <div class="nav-item">
-      <a href="#">👗 Clothing <span class="arr">▾</span></a>
-      <div class="dropdown">
-        <a href="#">Sarees</a><a href="#">Kurtis</a><a href="#">Salwar Suits</a>
-        <a href="#">Lehengas</a><a href="#">Dresses</a><a href="#">Co-ord Sets</a>
-        <a href="#">Tops &amp; T-Shirts</a><a href="#">Shirts</a><a href="#">Jeans</a>
-        <a href="#">Trousers &amp; Pants</a><a href="#">Leggings</a><a href="#">Skirts</a>
-        <a href="#">Shorts</a><a href="#">Jackets</a><a href="#">Blazers</a>
-        <a href="#">Sweaters &amp; Cardigans</a><a href="#">Nightwear</a>
-        <a href="#">Lingerie</a><a href="#">Maternity Wear</a><a href="#">Plus Size</a>
-      </div>
-    </div>
+    <section class="collections-section">
+        <h2>Curated Collections</h2>
+        <div class="collection-grid">
+            <div class="collection-card">
+                <h3>Traditional Sarees</h3>
+                <p>Timeless elegance and rich heritage for every special occasion.</p>
+            </div>
+            <div class="collection-card">
+                <h3>Artificial Jewelry</h3>
+                <p>Exquisite gold-plated designs that complement your gorgeous look.</p>
+            </div>
+            <div class="collection-card">
+                <h3>Exquisite Accessories</h3>
+                <p>Carefully selected pieces to add a touch of sophistication.</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="nav-item">
-      <a href="#">👡 Footwear <span class="arr">▾</span></a>
-      <div class="dropdown">
-        <a href="#">Heels</a><a href="#">Sandals</a><a href="#">Flats</a>
-        <a href="#">Sneakers</a><a href="#">Boots</a><a href="#">Loafers</a><a href="#">Slippers</a>
-      </div>
-    </div>
-
-    <div class="nav-item">
-      <a href="#">👜 Bags <span class="arr">▾</span></a>
-      <div class="dropdown">
-        <a href="#">Handbags</a><a href="#">Tote Bags</a><a href="#">Sling Bags</a>
-        <a href="#">Shoulder Bags</a><a href="#">Backpacks</a><a href="#">Wallets</a><a href="#">Clutches</a>
-      </div>
-    </div>
-
-    <div class="nav-item">
-      <a href="#">💍 Jewellery <span class="arr">▾</span></a>
-      <div class="dropdown">
-        <a href="#">Earrings</a><a href="#">Necklaces</a><a href="#">Bangles</a>
-        <a href="#">Bracelets</a><a href="#">Rings</a><a href="#">Anklets</a>
-        <a href="#">Nose Pins</a><a href="#">Mangalsutra</a><a href="#">Jewellery Sets</a>
-      </div>
-    </div>
-
-    <div class="nav-item">
-      <a href="#">⌚ Watches <span class="arr">▾</span></a>
-      <div class="dropdown">
-        <a href="#">Analog Watches</a><a href="#">Smart Watches</a><a href="#">Luxury Watches</a>
-      </div>
-    </div>
-
-    <div class="nav-item">
-      <a href="#">🕶 Accessories <span class="arr">▾</span></a>
-      <div class="dropdown">
-        <a href="#">Sunglasses</a><a href="#">Belts</a><a href="#">Hair Accessories</a>
-        <a href="#">Scarves</a><a href="#">Caps &amp; Hats</a>
-      </div>
-    </div>
-
-    <div class="nav-item">
-      <a href="#">💄 Beauty <span class="arr">▾</span></a>
-      <div class="dropdown">
-        <a href="#">Makeup</a><a href="#">Skincare</a><a href="#">Haircare</a>
-        <a href="#">Fragrances</a><a href="#">Nail Care</a>
-      </div>
-    </div>
-
-    <div class="nav-item">
-      <a href="#">❤️ Collections <span class="arr">▾</span></a>
-      <div class="dropdown">
-        <a href="#">New Arrivals</a><a href="#">Best Sellers</a><a href="#">Trending Now</a>
-        <a href="#">Wedding Collection</a><a href="#">Party Wear</a><a href="#">Office Wear</a>
-        <a href="#">Casual Wear</a><a href="#">Festive Wear</a><a href="#">Summer Collection</a>
-        <a href="#">Winter Collection</a><a href="#">Ethnic Wear</a><a href="#">Western Wear</a>
-      </div>
-    </div>
-
-    <div class="nav-item">
-      <a href="#">📝 Blog <span class="arr">▾</span></a>
-      <div class="dropdown">
-        <a href="#">Fashion Trends</a><a href="#">Styling Tips</a><a href="#">Buying Guides</a>
-        <a href="#">Celebrity Style</a><a href="#">Brand Reviews</a>
-      </div>
-    </div>
-
-  </div>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-text">
-    <p class="hero-label">Indian Women's Fashion</p>
-    <h1>Where Tradition Meets<br><em>Modern Elegance</em></h1>
-    <p>Handpicked sarees, ethnic wear, jewellery &amp; accessories</p>
-    <a href="#products" class="hero-btn">Explore Collection</a>
-  </div>
-  <div class="hero-banner">
-    <img src="banner.jpg" alt="Styvora Fashion"/>
-  </div>
-</div>
-
-<!-- STRIP -->
-<div class="strip">
-  <div class="strip-item"><strong>Handpicked Products</strong><span>Every item verified</span></div>
-  <div class="strip-sep"></div>
-  <div class="strip-item"><strong>Trusted Sellers</strong><span>Linked to top stores</span></div>
-  <div class="strip-sep"></div>
-  <div class="strip-item"><strong>Detailed Descriptions</strong><span>Know before you buy</span></div>
-  <div class="strip-sep"></div>
-  <div class="strip-item"><strong>New Arrivals Weekly</strong><span>Fresh styles every week</span></div>
-</div>
-
-<!-- CATEGORY SHOWCASE -->
-<section class="cat-showcase" id="categories">
-  <p class="sec-label">Shop by Category</p>
-  <h2 class="sec-title">Everything You <em>Love</em></h2>
-  <div class="cat-main-grid">
-
-    <div class="cat-main-item">
-      <div class="cat-main-icon">👗</div>
-      <h3>Clothing</h3>
-      <ul class="cat-sub-list">
-        <li><a href="#">Sarees</a></li>
-        <li><a href="#">Kurtis</a></li>
-        <li><a href="#">Salwar Suits</a></li>
-        <li><a href="#">Lehengas</a></li>
-        <li><a href="#">Dresses</a></li>
-        <li><a href="#">Co-ord Sets</a></li>
-        <li><a href="#">Tops &amp; T-Shirts</a></li>
-        <li><a href="#">Jackets &amp; Blazers</a></li>
-      </ul>
-      <span class="see-all">See all clothing →</span>
-    </div>
-
-    <div class="cat-main-item">
-      <div class="cat-main-icon">💍</div>
-      <h3>Jewellery</h3>
-      <ul class="cat-sub-list">
-        <li><a href="#">Earrings</a></li>
-        <li><a href="#">Necklaces</a></li>
-        <li><a href="#">Bangles</a></li>
-        <li><a href="#">Bracelets</a></li>
-        <li><a href="#">Rings</a></li>
-        <li><a href="#">Anklets</a></li>
-        <li><a href="#">Mangalsutra</a></li>
-        <li><a href="#">Jewellery Sets</a></li>
-      </ul>
-      <span class="see-all">See all jewellery →</span>
-    </div>
-
-    <div class="cat-main-item">
-      <div class="cat-main-icon">👜</div>
-      <h3>Bags &amp; Footwear</h3>
-      <ul class="cat-sub-list">
-        <li><a href="#">Handbags</a></li>
-        <li><a href="#">Tote Bags</a></li>
-        <li><a href="#">Clutches</a></li>
-        <li><a href="#">Wallets</a></li>
-        <li><a href="#">Heels</a></li>
-        <li><a href="#">Sandals</a></li>
-        <li><a href="#">Flats</a></li>
-        <li><a href="#">Sneakers</a></li>
-      </ul>
-      <span class="see-all">See all →</span>
-    </div>
-
-    <div class="cat-main-item">
-      <div class="cat-main-icon">❤️</div>
-      <h3>Collections</h3>
-      <ul class="cat-sub-list">
-        <li><a href="#">New Arrivals</a></li>
-        <li><a href="#">Best Sellers</a></li>
-        <li><a href="#">Wedding Collection</a></li>
-        <li><a href="#">Festive Wear</a></li>
-        <li><a href="#">Party Wear</a></li>
-        <li><a href="#">Office Wear</a></li>
-        <li><a href="#">Ethnic Wear</a></li>
-        <li><a href="#">Western Wear</a></li>
-      </ul>
-      <span class="see-all">See all collections →</span>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PRODUCTS -->
-<section class="products-bg" id="products">
-  <p class="sec-label">New Arrivals</p>
-  <h2 class="sec-title">Handpicked <em>Just for You</em></h2>
-  <div class="product-grid">
-    <div class="product-card">
-      <div class="product-thumb">🥻<span class="badge badge-new">New</span></div>
-      <div class="product-body">
-        <p class="product-cat">Sarees</p>
-        <h3 class="product-name">Banarasi Silk Saree</h3>
-        <p class="product-desc">Handwoven pure Banarasi silk with intricate zari work. Perfect for weddings &amp; festive occasions. 12 colours available.</p>
-        <div class="product-foot"><div class="price">&#8377;3,499</div><a href="#" class="btn-buy">Buy Now →</a></div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-thumb">💎<span class="badge badge-sale">Sale</span></div>
-      <div class="product-body">
-        <p class="product-cat">Jewellery</p>
-        <h3 class="product-name">Kundan Necklace Set</h3>
-        <p class="product-desc">Gold-plated Kundan necklace with matching earrings &amp; maangtika. Premium quality artificial stones.</p>
-        <div class="product-foot"><div class="price"><span class="old">&#8377;1,800</span>&#8377;1,199</div><a href="#" class="btn-buy">Buy Now →</a></div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-thumb">👗</div>
-      <div class="product-body">
-        <p class="product-cat">Kurtis</p>
-        <h3 class="product-name">Anarkali Printed Kurti</h3>
-        <p class="product-desc">Floor-length Anarkali with block print design. Breathable rayon fabric. Available S to 3XL.</p>
-        <div class="product-foot"><div class="price">&#8377;899</div><a href="#" class="btn-buy">Buy Now →</a></div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-thumb">👘<span class="badge badge-new">New</span></div>
-      <div class="product-body">
-        <p class="product-cat">Lehenga</p>
-        <h3 class="product-name">Bridal Lehenga Set</h3>
-        <p class="product-desc">Heavy embroidered lehenga choli with dupatta. Velvet &amp; net fabric. Ideal for weddings &amp; sangeets.</p>
-        <div class="product-foot"><div class="price">&#8377;8,999</div><a href="#" class="btn-buy">Buy Now →</a></div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-thumb">🧣</div>
-      <div class="product-body">
-        <p class="product-cat">Accessories</p>
-        <h3 class="product-name">Embroidered Dupatta</h3>
-        <p class="product-desc">Pure chiffon dupatta with heavy phulkari embroidery on borders. Pairs beautifully with any suit or lehenga.</p>
-        <div class="product-foot"><div class="price">&#8377;649</div><a href="#" class="btn-buy">Buy Now →</a></div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-thumb">📿<span class="badge badge-sale">Sale</span></div>
-      <div class="product-body">
-        <p class="product-cat">Jewellery</p>
-        <h3 class="product-name">Jhumka Earrings Set</h3>
-        <p class="product-desc">Traditional bell-shaped jhumkas with meenakari enamel work. Lightweight hooks. Set of 3 pairs.</p>
-        <div class="product-foot"><div class="price"><span class="old">&#8377;799</span>&#8377;499</div><a href="#" class="btn-buy">Buy Now →</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- TESTIMONIALS -->
-<section>
-  <p class="sec-label">What People Say</p>
-  <h2 class="sec-title">Loved across <em>India</em></h2>
-  <div class="testi-grid">
-    <div class="testi-card"><div class="stars">★★★★★</div><blockquote>"Found my wedding lehenga through Styvora! The details were so helpful — I knew exactly what to expect."</blockquote><cite>Priya Sharma — Delhi</cite></div>
-    <div class="testi-card"><div class="stars">★★★★★</div><blockquote>"I love how they describe every saree — fabric, drape, occasion. So easy to choose without visiting a store."</blockquote><cite>Ananya Reddy — Hyderabad</cite></div>
-    <div class="testi-card"><div class="stars">★★★★★</div><blockquote>"The kundan jewellery picks are gorgeous and so affordable. My family couldn't believe it wasn't real gold!"</blockquote><cite>Meera Iyer — Bangalore</cite></div>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section class="newsletter" id="contact">
-  <p class="sec-label">Stay in Style</p>
-  <h2 class="sec-title">Get New Arrivals First</h2>
-  <p class="nl-sub">Weekly fashion edits, exclusive deals &amp; festive drops — straight to your inbox.</p>
-  <div class="nl-form">
-    <input type="email" placeholder="Your email address"/>
-    <button>Subscribe</button>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-logo"><img src="image2.jpg" alt="Styvora"/></div>
-    <nav class="footer-nav">
-      <a href="#categories">Clothing</a>
-      <a href="#categories">Jewellery</a>
-      <a href="#categories">Bags</a>
-      <a href="#categories">Footwear</a>
-      <a href="#categories">Beauty</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Styvora. All rights reserved.</span>
-    <span>Made with love for Indian women's fashion</span>
-  </div>
-</footer>
+    <footer>
+        <p>&copy; 2026 STYVORA. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>

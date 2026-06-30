@@ -149,6 +149,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
+            max-width: 900px; /* added to keep the two cards centered perfectly */
+            margin: 0 auto;
         }
         .collection-card {
             background: #ffffff;
@@ -171,6 +173,27 @@
         .collection-card p {
             font-size: 14px;
             color: #777777;
+        }
+        
+        /* More Categories Link Styles */
+        .more-categories-container {
+            margin-top: 50px;
+        }
+        .more-categories-link {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #111111;
+            border-bottom: 1px solid #111111;
+            padding-bottom: 5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .more-categories-link:hover {
+            color: #666666;
+            border-bottom-color: #666666;
         }
 
         /* Newsletter Section */
@@ -301,10 +324,11 @@
                 <h3>Artificial Jewelry</h3>
                 <p>Exquisite gold-plated designs that complement your gorgeous look.</p>
             </div>
-            <div class="collection-card">
-                <h3>Exquisite Accessories</h3>
-                <p>Carefully selected pieces to add a touch of sophistication.</p>
-            </div>
+        </div>
+        
+        <!-- New More Categories Link -->
+        <div class="more-categories-container">
+            <a href="#" class="more-categories-link">View More Categories <span>&rarr;</span></a>
         </div>
     </section>
 

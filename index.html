@@ -5,304 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Styvora | Premium Women's Fashion & Accessories</title>
     <style>
-        /* CSS Reset & Core Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #fbfbfb;
-            color: #1a1a1a;
-            line-height: 1.6;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-
-        /* Header Navigation */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 8%;
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .brand-logo {
-            height: 45px;
-            width: 45px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-        .brand-name {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #111111;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-        }
-        nav ul li a {
-            font-size: 13px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #555555;
-        }
-        nav ul li a:hover {
-            color: #000000;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            background-image: url('banner.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            text-align: center;
-            padding: 140px 20px;
-            border-bottom: 1px solid #f0f0f0;
-            position: relative;
-        }
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0; 
-            left: 0; 
-            right: 0; 
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.75); 
-            z-index: 1;
-        }
-        .hero-section h1, 
-        .hero-section p, 
-        .hero-section .cta-btn {
-            position: relative;
-            z-index: 2;
-        }
-        .hero-section h1 {
-            font-size: 46px;
-            font-weight: 300;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-        }
-        .hero-section p {
-            font-size: 16px;
-            color: #666666;
-            max-width: 650px;
-            margin: 0 auto 40px auto;
-        }
-        .cta-btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background-color: #111111;
-            color: #ffffff;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-        }
-        .cta-btn:hover {
-            background-color: #333333;
-            letter-spacing: 2.5px;
-        }
-
-        /* Featured Collections */
-        .collections-section {
-            padding: 100px 8%;
-            text-align: center;
-        }
-        .collections-section h2 {
-            font-size: 28px;
-            font-weight: 400;
-            letter-spacing: 3px;
-            margin-bottom: 60px;
-            text-transform: uppercase;
-            position: relative;
-        }
-        .collections-section h2::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 1px;
-            background: #111;
-            margin: 15px auto 0 auto;
-        }
-        .collection-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 900px; /* added to keep the two cards centered perfectly */
-            margin: 0 auto;
-        }
-        .collection-card {
-            background: #ffffff;
-            padding: 50px 30px;
-            border: 1px solid #eeeeee;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.01);
-        }
-        .collection-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-            border-color: #dddddd;
-        }
-        .collection-card h3 {
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: 15px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-        .collection-card p {
-            font-size: 14px;
-            color: #777777;
-        }
-        
-        /* More Categories Link Styles */
-        .more-categories-container {
-            margin-top: 50px;
-        }
-        .more-categories-link {
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #111111;
-            border-bottom: 1px solid #111111;
-            padding-bottom: 5px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .more-categories-link:hover {
-            color: #666666;
-            border-bottom-color: #666666;
-        }
-
-        /* Newsletter Section */
-        .newsletter-section {
-            background-color: #ffffff;
-            text-align: center;
-            padding: 80px 20px;
-            border-top: 1px solid #eeeeee;
-        }
-        .newsletter-section h2 {
-            font-size: 24px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-        .newsletter-section p {
-            font-size: 14px;
-            color: #666666;
-            margin-bottom: 30px;
-        }
-        .subscribe-form {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            gap: 10px;
-        }
-        .subscribe-form input[type="email"] {
-            flex: 1;
-            padding: 12px 20px;
-            border: 1px solid #cccccc;
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        .subscribe-form input[type="email"]:focus {
-            border-color: #111111;
-        }
-        .subscribe-form button {
-            padding: 12px 30px;
-            background-color: #111111;
-            color: #ffffff;
-            border: none;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .subscribe-form button:hover {
-            background-color: #333333;
-        }
-        #form-message {
-            margin-top: 15px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        /* Footer Section */
-        footer {
-            background-color: #111111;
-            color: #ffffff;
-            text-align: center;
-            padding: 50px 20px;
-        }
-        footer p {
-            font-size: 13px;
-            letter-spacing: 1.5px;
-            color: #999999;
-        }
-
-        /* Responsive Design */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #fbfbfb; color: #1a1a1a; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background-color: #ffffff; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02); position: sticky; top: 0; z-index: 1000; }
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .brand-logo { height: 45px; width: 45px; object-fit: cover; border-radius: 50%; }
+        .brand-name { font-size: 24px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #111111; }
+        nav ul { list-style: none; display: flex; gap: 35px; flex-wrap: wrap; justify-content: center; }
+        nav ul li a { font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; color: #555555; }
+        nav ul li a:hover { color: #000000; }
+        .hero-section { background-image: url('banner.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; text-align: center; padding: 140px 20px; border-bottom: 1px solid #f0f0f0; position: relative; }
+        .hero-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.75); z-index: 1; }
+        .hero-section h1, .hero-section p, .hero-section .cta-btn { position: relative; z-index: 2; }
+        .hero-section h1 { font-size: 46px; font-weight: 300; letter-spacing: 3px; margin-bottom: 25px; text-transform: uppercase; }
+        .hero-section p { font-size: 16px; color: #666666; max-width: 650px; margin: 0 auto 40px auto; }
+        .cta-btn { display: inline-block; padding: 15px 40px; background-color: #111111; color: #ffffff; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
+        .cta-btn:hover { background-color: #333333; letter-spacing: 2.5px; }
+        .collections-section { padding: 100px 8%; text-align: center; }
+        .collections-section h2 { font-size: 28px; font-weight: 400; letter-spacing: 3px; margin-bottom: 60px; text-transform: uppercase; position: relative; }
+        .collections-section h2::after { content: ''; display: block; width: 40px; height: 1px; background: #111; margin: 15px auto 0 auto; }
+        .collection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 900px; margin: 0 auto; }
+        .collection-card { background: #ffffff; padding: 50px 30px; border: 1px solid #eeeeee; transition: transform 0.3s; }
+        .collection-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); border-color: #dddddd; }
+        .more-categories-container { margin-top: 50px; }
+        .more-categories-link { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #111111; border-bottom: 1px solid #111111; padding-bottom: 5px; display: inline-flex; align-items: center; gap: 8px; }
+        .more-categories-link:hover { color: #666666; border-bottom-color: #666666; }
+        .newsletter-section { background-color: #ffffff; text-align: center; padding: 80px 20px; border-top: 1px solid #eeeeee; }
+        .newsletter-section h2 { font-size: 24px; font-weight: 500; letter-spacing: 2px; margin-bottom: 15px; text-transform: uppercase; }
+        .newsletter-section p { font-size: 14px; color: #666666; margin-bottom: 30px; }
+        .subscribe-form { max-width: 500px; margin: 0 auto; display: flex; gap: 10px; }
+        .subscribe-form input[type="email"] { flex: 1; padding: 12px 20px; border: 1px solid #cccccc; font-size: 14px; outline: none; transition: border-color 0.3s; }
+        .subscribe-form button { padding: 12px 30px; background-color: #111111; color: #ffffff; border: none; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: background-color 0.3s; }
+        #form-message { margin-top: 15px; font-size: 14px; font-weight: 500; }
+        footer { background-color: #111111; color: #ffffff; text-align: center; padding: 50px 20px; }
+        footer p { font-size: 13px; letter-spacing: 1.5px; color: #999999; }
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 25px;
-                padding: 20px;
-            }
-            .hero-section {
-                padding: 100px 20px;
-            }
-            .hero-section h1 {
-                font-size: 34px;
-            }
-            .collection-grid {
-                grid-template-columns: 1fr;
-            }
-            .subscribe-form {
-                flex-direction: column;
-            }
-            .subscribe-form button {
-                width: 100%;
-            }
+            header { flex-direction: column; gap: 25px; padding: 20px; }
+            .hero-section { padding: 100px 20px; }
+            .hero-section h1 { font-size: 34px; }
+            .collection-grid { grid-template-columns: 1fr; }
+            .subscribe-form { flex-direction: column; }
+            .subscribe-form button { width: 100%; }
         }
     </style>
 </head>
 <body>
-
     <header>
-        <a href="#" class="logo-container">
-            <img src="logo.jpg" alt="Styvora Logo" class="brand-logo">
+        <a href="https://styvorafashion.com" class="logo-container">
+            <img src="https://styvorafashion.com/logo.jpg" alt="Styvora Logo" class="brand-logo">
             <span class="brand-name">Styvora</span>
         </a>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Sarees</a></li>
-                <li><a href="#">Jewelry</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="https://styvorafashion.com/">Home</a></li>
+                <li><a href="https://styvorafashion.com/contact">Contact</a></li>
                 <li><a href="https://styvorafashion.com/banglesforwomen">BANGLES FOR WOMEN</a></li>
             </ul>
         </nav>
@@ -310,29 +67,23 @@
 
     <section class="hero-section">
         <h1>Elegance in Every Detail</h1>
-        <p>Discover our exclusive collection of premium women's fashion, exquisite traditional sarees, and beautifully crafted gold-plated artificial jewelry designed for the modern woman.</p>
+        <p>Discover our exclusive collection of premium women's fashion and beautifully crafted gold-plated artificial jewelry designed for the modern woman.</p>
         <a href="#" class="cta-btn">Explore Collection</a>
     </section>
 
     <section class="collections-section">
         <h2>Curated Collections</h2>
         <div class="collection-grid">
-            <div class="collection-card">
-                <h3>Traditional Sarees</h3>
-                <p>Timeless elegance and rich heritage for every special occasion.</p>
-            </div>
-            <div class="collection-card">
-                <h3>Artificial Jewelry</h3>
-                <p>Exquisite gold-plated designs that complement your gorgeous look.</p>
-            </div>
-        
-            <div class="collection-card">
+            
+            <!-- BANGLES FOR WOMEN CARD -->
+            <div class="collection-card" style="background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.95)), url(''); background-size: cover; background-position: center;">
                 <a href="https://styvorafashion.com/banglesforwomen" style="display:block; text-decoration:none; color:inherit;">
-                    <h3>BANGLES FOR WOMEN</h3>
-                    <p>Sculpted elegance. Dazzle with every movement.</p>
+                    <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 15px; letter-spacing: 1.5px; text-transform: uppercase;">BANGLES FOR WOMEN</h3>
+                    <p style="font-size: 14px; color: #555;">Sculpted elegance. Dazzle with every movement.</p>
                     <span style="font-size: 11px; font-weight: bold; border-bottom: 1px solid #111; margin-top: 15px; display: inline-block;">EXPLORE &rarr;</span>
                 </a>
             </div>
+
         </div>
         
         <!-- New More Categories Link -->
@@ -344,14 +95,11 @@
     <!-- Newsletter Section with Web3Forms -->
     <section class="newsletter-section">
         <h2>Join the Styvora Club</h2>
-        <p>Subscribe to receive updates on new saree collections, jewelry drops, and exclusive offers.</p>
-        
+        <p>Subscribe to receive updates on new collections and exclusive offers.</p>
         <form class="subscribe-form" id="subscribe-form">
-            <!-- Your Web3Forms Access Key -->
             <input type="hidden" name="access_key" value="bd11a4c2-594f-4603-b2bf-2b45a29161fc">
             <input type="hidden" name="subject" value="New Subscriber on Styvora Website!">
             <input type="hidden" name="from_name" value="Styvora Alerts">
-            
             <input type="email" name="email" id="email-input" placeholder="Enter your email address" required>
             <button type="submit" id="submit-btn">Subscribe</button>
         </form>
@@ -370,17 +118,13 @@
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            
             submitBtn.disabled = true;
             messageEl.innerText = "Subscribing...";
             messageEl.style.color = "#666666";
 
             const formData = new FormData(form);
 
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formData
-            })
+            fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
             .then(async (response) => {
                 let json = await response.json();
                 if (response.status == 200) {
@@ -397,9 +141,7 @@
                 messageEl.innerText = "Something went wrong. Please try again.";
                 messageEl.style.color = "red";
             })
-            .finally(() => {
-                submitBtn.disabled = false;
-            });
+            .finally(() => { submitBtn.disabled = false; });
         });
     </script>
 </body>

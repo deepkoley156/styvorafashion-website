@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6GVYZCMMGH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6GVYZCMMGH');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Styvora | Premium Women's Fashion & Accessories</title>
+    <title>Styvora Fashion | Premium Collections</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6GVYZCMMGH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6GVYZCMMGH');
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #fbfbfb; color: #1a1a1a; line-height: 1.6; }
@@ -21,41 +20,30 @@
         .logo-container { display: flex; align-items: center; gap: 12px; }
         .brand-logo { height: 45px; width: 45px; object-fit: cover; border-radius: 50%; }
         .brand-name { font-size: 24px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #111111; }
-        nav ul { list-style: none; display: flex; gap: 35px; flex-wrap: wrap; justify-content: center; }
+        nav ul { list-style: none; display: flex; gap: 35px; }
         nav ul li a { font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; color: #555555; }
         nav ul li a:hover { color: #000000; }
-        .hero-section { background-image: url('banner.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; text-align: center; padding: 140px 20px; border-bottom: 1px solid #f0f0f0; position: relative; }
-        .hero-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.75); z-index: 1; }
-        .hero-section h1, .hero-section p, .hero-section .cta-btn { position: relative; z-index: 2; }
-        .hero-section h1 { font-size: 46px; font-weight: 300; letter-spacing: 3px; margin-bottom: 25px; text-transform: uppercase; }
-        .hero-section p { font-size: 16px; color: #666666; max-width: 650px; margin: 0 auto 40px auto; }
-        .cta-btn { display: inline-block; padding: 15px 40px; background-color: #111111; color: #ffffff; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
-        .cta-btn:hover { background-color: #333333; letter-spacing: 2.5px; }
-        .collections-section { padding: 100px 8%; text-align: center; }
-        .collections-section h2 { font-size: 28px; font-weight: 400; letter-spacing: 3px; margin-bottom: 60px; text-transform: uppercase; position: relative; }
-        .collections-section h2::after { content: ''; display: block; width: 40px; height: 1px; background: #111; margin: 15px auto 0 auto; }
-        .collection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 900px; margin: 0 auto; }
-        .collection-card { background: #ffffff; padding: 50px 30px; border: 1px solid #eeeeee; transition: transform 0.3s; }
-        .collection-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); border-color: #dddddd; }
-        .more-categories-container { margin-top: 50px; }
-        .more-categories-link { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #111111; border-bottom: 1px solid #111111; padding-bottom: 5px; display: inline-flex; align-items: center; gap: 8px; }
-        .more-categories-link:hover { color: #666666; border-bottom-color: #666666; }
-        .newsletter-section { background-color: #ffffff; text-align: center; padding: 80px 20px; border-top: 1px solid #eeeeee; }
-        .newsletter-section h2 { font-size: 24px; font-weight: 500; letter-spacing: 2px; margin-bottom: 15px; text-transform: uppercase; }
-        .newsletter-section p { font-size: 14px; color: #666666; margin-bottom: 30px; }
-        .subscribe-form { max-width: 500px; margin: 0 auto; display: flex; gap: 10px; }
-        .subscribe-form input[type="email"] { flex: 1; padding: 12px 20px; border: 1px solid #cccccc; font-size: 14px; outline: none; transition: border-color 0.3s; }
-        .subscribe-form button { padding: 12px 30px; background-color: #111111; color: #ffffff; border: none; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: background-color 0.3s; }
-        #form-message { margin-top: 15px; font-size: 14px; font-weight: 500; }
-        footer { background-color: #111111; color: #ffffff; text-align: center; padding: 50px 20px; }
+        
+        /* Homepage specific styles */
+        .hero-section { text-align: center; padding: 80px 20px; background: #ffffff; border-bottom: 1px solid #eeeeee; }
+        .hero-title { font-size: 36px; font-weight: 400; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
+        .hero-subtitle { font-size: 16px; color: #666; max-width: 600px; margin: 0 auto; }
+        
+        .categories-container { padding: 60px 8%; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 24px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px; font-weight: 500;}
+        
+        .collection-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+        .collection-card { background: #fff; display: flex; flex-direction: column; justify-content: center; min-height: 250px; border-radius: 8px; overflow: hidden; }
+        .collection-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        footer { background-color: #111111; color: #ffffff; text-align: center; padding: 50px 20px; margin-top: 60px;}
         footer p { font-size: 13px; letter-spacing: 1.5px; color: #999999; }
+        
         @media (max-width: 768px) {
-            header { flex-direction: column; gap: 25px; padding: 20px; }
-            .hero-section { padding: 100px 20px; }
-            .hero-section h1 { font-size: 34px; }
+            header { flex-direction: column; gap: 20px; padding: 20px; }
+            nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .hero-title { font-size: 28px; }
             .collection-grid { grid-template-columns: 1fr; }
-            .subscribe-form { flex-direction: column; }
-            .subscribe-form button { width: 100%; }
         }
     </style>
 </head>
@@ -69,98 +57,23 @@
             <ul>
                 <li><a href="https://styvorafashion.com/">Home</a></li>
                 <li><a href="https://styvorafashion.com/contact">Contact</a></li>
-                <li><a href="https://styvorafashion.com/banglesforwomen">BANGLES FOR WOMEN</a></li>
-                <li><a href="https://styvorafashion.com/indianjhumkaearringstraditional">INDIAN JHUMKA EARRINGS | TRADITIONAL</a></li>
             </ul>
         </nav>
     </header>
-
+    
     <section class="hero-section">
-        <h1>Elegance in Every Detail</h1>
-        <p>Discover our exclusive collection of premium women's fashion and beautifully crafted gold-plated artificial jewelry designed for the modern woman.</p>
-        <a href="#" class="cta-btn">Explore Collection</a>
+        <h1 class="hero-title">Discover Your Style</h1>
+        <p class="hero-subtitle">Explore our exclusive collections of premium fashion and jewelry crafted for the modern lifestyle.</p>
     </section>
 
-    <section class="collections-section">
-        <h2>Curated Collections</h2>
+    <section class="categories-container">
+        <h2 class="section-title">Shop by Category</h2>
+        <!-- Automation starts injecting here -->
         <div class="collection-grid">
             
-            <!-- BANGLES FOR WOMEN CARD -->
-            <div class="collection-card" style="background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.6)), url('https://raw.githubusercontent.com/deepkoley156/styvorafashion-website/refs/heads/main/1783013188649.png'); background-size: cover; background-position: center; border: 1px solid #eeeeee; padding: 50px 30px; transition: transform 0.3s; text-align: center;">
-                <a href="https://styvorafashion.com/banglesforwomen" style="display:block; text-decoration:none; color:inherit;">
-                    <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 15px; letter-spacing: 1.5px; text-transform: uppercase;">BANGLES FOR WOMEN</h3>
-                    <p style="font-size: 14px; color: #555;">Sculpted elegance. Dazzle with every movement.</p>
-                    <span style="font-size: 11px; font-weight: bold; border-bottom: 1px solid #111; margin-top: 15px; display: inline-block;">EXPLORE &rarr;</span>
-                </a>
-            
-            <div class="collection-card" style="background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.6)), url('https://raw.githubusercontent.com/deepkoley156/styvorafashion-website/refs/heads/main/1783405090939.png'); background-size: cover; background-position: center; border: 1px solid #eeeeee; padding: 50px 30px; transition: transform 0.3s; text-align: center;">
-                <a href="https://styvorafashion.com/indianjhumkaearringstraditional" style="display:block; text-decoration:none; color:inherit;">
-                    <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 15px; letter-spacing: 1.5px; text-transform: uppercase;">INDIAN JHUMKA EARRINGS | TRADITIONAL</h3>
-                    <p style="font-size: 14px; color: #555;">Exquisite traditional Indian jhumkas, timeless cultural elegance.</p>
-                    <span style="font-size: 11px; font-weight: bold; border-bottom: 1px solid #111; margin-top: 15px; display: inline-block;">EXPLORE &rarr;</span>
-                </a>
-            </div>
-        </div>
-        
-        </div>
-        
-        <!-- New More Categories Link -->
-        <div class="more-categories-container">
-            <a href="#" class="more-categories-link">View More Categories <span>&rarr;</span></a>
         </div>
     </section>
 
-    <!-- Newsletter Section with Web3Forms -->
-    <section class="newsletter-section">
-        <h2>Join the Styvora Club</h2>
-        <p>Subscribe to receive updates on new collections and exclusive offers.</p>
-        <form class="subscribe-form" id="subscribe-form">
-            <input type="hidden" name="access_key" value="bd11a4c2-594f-4603-b2bf-2b45a29161fc">
-            <input type="hidden" name="subject" value="New Subscriber on Styvora Website!">
-            <input type="hidden" name="from_name" value="Styvora Alerts">
-            <input type="email" name="email" id="email-input" placeholder="Enter your email address" required>
-            <button type="submit" id="submit-btn">Subscribe</button>
-        </form>
-        <p id="form-message"></p>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 STYVORA. All Rights Reserved.</p>
-    </footer>
-
-    <!-- Web3Forms API Script -->
-    <script>
-        const form = document.getElementById('subscribe-form');
-        const messageEl = document.getElementById('form-message');
-        const submitBtn = document.getElementById('submit-btn');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitBtn.disabled = true;
-            messageEl.innerText = "Subscribing...";
-            messageEl.style.color = "#666666";
-
-            const formData = new FormData(form);
-
-            fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
-            .then(async (response) => {
-                let json = await response.json();
-                if (response.status == 200) {
-                    messageEl.innerText = "Thank you for subscribing to Styvora!";
-                    messageEl.style.color = "green";
-                    form.reset();
-                } else {
-                    messageEl.innerText = json.message;
-                    messageEl.style.color = "red";
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                messageEl.innerText = "Something went wrong. Please try again.";
-                messageEl.style.color = "red";
-            })
-            .finally(() => { submitBtn.disabled = false; });
-        });
-    </script>
+    <footer><p>&copy; 2026 STYVORA. All Rights Reserved.</p></footer>
 </body>
 </html>

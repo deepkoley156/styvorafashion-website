@@ -1,5 +1,5 @@
 Pinterest Error Log:
-Product Title: Elegant Gold-Plated Traditional Jhumka Earrings
+Product Title: Exquisite Oxidized Jhumkas: Ethnic Artificial Pearl Drop Earrings
 Error Detail: {"code":3,"message":"Your application consumer type is not supported, please contact support."}
-Attempted Image URL: https://raw.githubusercontent.com/deepkoley156/styvorafashion-website/main/indianjhumkaearringstraditional/images/elegant-gold-plated-traditional-jhumka-earrings.jpg
-Time: Wed, 08 Jul 2026 17:49:15 GMT
+Attempted Image URL: https://raw.githubusercontent.com/deepkoley156/styvorafashion-website/main/indianjhumkaearringstraditional/images/exquisite-oxidized-jhumkas-ethnic-artificial-pearl-drop-earrings.jpg
+Time: Wed, 08 Jul 2026 18:50:09 GMT

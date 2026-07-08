@@ -1,0 +1,4 @@
+Pinterest Error Log:
+Product Title: Ethnic Oxidized Elephant Jhumkas with Pearl Drops
+Error Detail: {"code":3,"message":"Your application consumer type is not supported, please contact support."}
+Time: Wed, 08 Jul 2026 17:33:46 GMT

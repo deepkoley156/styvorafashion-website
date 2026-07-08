@@ -1,4 +1,4 @@
 Pinterest Error Log:
-Product Title: Ethnic Oxidized Elephant Jhumkas with Pearl Drops
+Product Title: Traditional Pearl Jhumka Earrings | Gold Plated Ethnic Jhumki
 Error Detail: {"code":3,"message":"Your application consumer type is not supported, please contact support."}
-Time: Wed, 08 Jul 2026 17:33:46 GMT
+Time: Wed, 08 Jul 2026 17:34:31 GMT

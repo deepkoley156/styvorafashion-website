@@ -1,5 +1,5 @@
 Pinterest Error Log:
-Product Title: Traditional Temple Design Jhumkas | Gold Plated Earrings Online
+Product Title: Elegant Gold-Plated Traditional Jhumka Earrings
 Error Detail: {"code":3,"message":"Your application consumer type is not supported, please contact support."}
-Attempted Image URL: https://raw.githubusercontent.com/deepkoley156/styvorafashion-website/main/indianjhumkaearringstraditional/images/traditional-temple-design-jhumkas-gold-plated-earrings-online.jpg
-Time: Wed, 08 Jul 2026 17:48:20 GMT
+Attempted Image URL: https://raw.githubusercontent.com/deepkoley156/styvorafashion-website/main/indianjhumkaearringstraditional/images/elegant-gold-plated-traditional-jhumka-earrings.jpg
+Time: Wed, 08 Jul 2026 17:49:15 GMT
